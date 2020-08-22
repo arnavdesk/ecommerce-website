@@ -1,0 +1,25 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "item": "Red Chair",
+      "price": 2000,
+      "description": "Red color chair super cool.",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "item": "Green Chair",
+      "price": 2000,
+      "description": "Green color chair super cool.",
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "item": "Blue Chair",
+      "price": 2000,
+      "description": "Blue color chair super cool.",
+      "rating": 3
+    }
+  ]
+}
