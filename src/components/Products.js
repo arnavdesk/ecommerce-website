@@ -1,48 +1,35 @@
 import React from "react";
 import ProductItem from "./ProductItem";
+import { addProductsOnLoad } from "../actions/index";
+import { connect } from "react-redux";
+
 class Products extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      products: [
-        {
-          img:
-            "https://images-na.ssl-images-amazon.com/images/I/51kGDXeFZKL._SL1024_.jpg",
-          id: 1,
-          title: "Apple iPhone 11 (64GB) - Black",
-          price: 59900,
-          description:
-            "iPhone-11 Just the right ammount of everything. Better Camera, Better Design, Better everything",
-          rating: 4,
-        },
-        {
-          id: 2,
-          title: "Green Chair",
-          price: 2000,
-          description: "Green color chair super cool.",
-          rating: 4,
-        },
-        {
-          id: 3,
-          title: "Blue Chair",
-          price: 2000,
-          description: "Blue color chair super cool.",
-          rating: 3,
-        },
-      ],
-    };
-  }
+  componentDidMount = () => {
+    const { dispatch } = this.props;
+    dispatch(addProductsOnLoad());
+  };
 
   render() {
-    const { products } = this.state;
+    const { items } = this.props.products;
     return (
       <div className="products">
-        {products.map((item) => {
-          return <ProductItem product={item} />;
-        })}
+        {items.length > 0 ? (
+          items.map((item) => {
+            return <ProductItem product={item} key={item.id} />;
+          })
+        ) : (
+          <h1>No Products to show</h1>
+        )}
       </div>
     );
   }
 }
 
-export default Products;
+function mapStateToProps(state) {
+  return {
+    products: state.products,
+  };
+}
+
+const connectedAppComponent = connect(mapStateToProps)(Products);
+export default connectedAppComponent;

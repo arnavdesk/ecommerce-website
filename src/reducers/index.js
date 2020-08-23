@@ -1,19 +1,31 @@
 import { combineReducers } from "redux";
+import { ADD_PRODUCTS, ADD_PRODUCT_TO_CART } from "../actions/index";
 
 const initialProductsState = {
-  products: [],
+  items: [],
 };
 
 export function products(state = initialProductsState, action) {
-  return state;
+  switch (action.type) {
+    case ADD_PRODUCTS:
+      return { ...state, items: action.items };
+    default:
+      return state;
+  }
 }
 
 const initialCartState = {
-  products: [],
+  items: [],
 };
 
 export function cart(state = initialCartState, action) {
-  return state;
+  switch (action.type) {
+    case ADD_PRODUCT_TO_CART:
+      console.log("called");
+      return { ...state, items: [...state.items, action.item] };
+    default:
+      return state;
+  }
 }
 
 export default combineReducers({
