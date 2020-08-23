@@ -66,10 +66,6 @@ body {
   padding: 8px;
 }
 
-.nav-button:hover {
-  background-color: rgb(56, 62, 68) !important;
-}
-
 /*
 .search-container {
   position: relative;

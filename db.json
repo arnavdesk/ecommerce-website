@@ -31,6 +31,22 @@
       "price": 40999,
       "description": "10.2-inch (25.91 cms) Retina display. A10 Fusion chip. Touch ID fingerprint sensor and Apple Pay. 8MP back camera, 1.2MP FaceTime HD front camera. Stereo speakers. 802.11ac Wi-Fi and Gigabit-class LTE cellular data. Up to 10 hours of battery life",
       "rating": 4
+    },
+    {
+      "img": "https://images-na.ssl-images-amazon.com/images/I/81pezrPSgOL._SL1500_.jpg",
+      "id": 5,
+      "title": "HP Pavilion Gaming 9th Gen Intel Core i5 Processor",
+      "price": 64990,
+      "description": "HP Pavilion Gaming 9th Gen Intel Core i5 Processor 15.6-inch FHD Gaming Laptop (8GB/1TB HDD/M.2 Slot/Windows 10/NVIDIA GTX 1650 4GB/Shadow Black), 15-dk0264TX",
+      "rating": 4
+    },
+    {
+      "img": "https://images-na.ssl-images-amazon.com/images/I/81rIDEbo31L._SL1500_.jpg",
+      "id": 6,
+      "title": "New Apple MacBook Pro (13-inch)",
+      "price": 179999,
+      "description": "New Apple MacBook Pro (13-inch, 16GB RAM, 512GB SSD, 2.0GHz Quad-core 10th-Generation Intel Core i5 Processor, Magic Keyboard) - Space Grey",
+      "rating": 5
     }
   ]
 }

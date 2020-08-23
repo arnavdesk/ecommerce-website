@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Navbar extends React.Component {
@@ -13,6 +13,21 @@ class Navbar extends React.Component {
   };
 
   render() {
+    const path = this.props.location.pathname;
+    let style1, style2, style3;
+    if (path === "/") {
+      style1 = { backgroundColor: "rgb(28, 88, 152)" };
+      style2 = { backgroundColor: "rgb(28, 30, 33)" };
+      style3 = { backgroundColor: "white" };
+    } else if (path === "/add-product") {
+      style2 = { backgroundColor: "rgb(28, 88, 152)" };
+      style1 = { backgroundColor: "rgb(28, 30, 33)" };
+      style3 = { backgroundColor: "white" };
+    } else if (path === "/cart") {
+      style2 = { backgroundColor: "rgb(28, 30, 33)" };
+      style1 = { backgroundColor: "rgb(28, 30, 33)" };
+      style3 = { backgroundColor: "rgb(28, 88, 152)" };
+    }
     return (
       <div className="navbar">
         <Link className="logo-link" to="/">
@@ -25,14 +40,18 @@ class Navbar extends React.Component {
         </Link>
         <div className="tabs">
           <Link to="/">
-            <button className="nav-button">Products</button>
+            <button style={style1} className="nav-button">
+              Products
+            </button>
           </Link>
           <Link to="/add-product">
-            <button className="nav-button">Add Product</button>
+            <button style={style2} className="nav-button">
+              Add Product
+            </button>
           </Link>
         </div>
         <Link className="cart-icon-link" to="/cart">
-          <div className="cart-icon-container">
+          <div style={style3} className="cart-icon-container">
             <img
               className="cart-icon"
               src="https://image.flaticon.com/icons/svg/779/779006.svg"
@@ -53,4 +72,4 @@ function mapStateToProps(state) {
 }
 
 const connectedAppComponent = connect(mapStateToProps)(Navbar);
-export default connectedAppComponent;
+export default withRouter(connectedAppComponent);
