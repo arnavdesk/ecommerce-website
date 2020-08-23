@@ -1,7 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class Navbar extends React.Component {
+  calculateTotalCount = () => {
+    const { items } = this.props.cart;
+    let total = 0;
+    for (const iterator of items) {
+      total += iterator.qty;
+    }
+    return total;
+  };
+
   render() {
     return (
       <div className="navbar">
@@ -28,7 +38,7 @@ class Navbar extends React.Component {
               src="https://image.flaticon.com/icons/svg/779/779006.svg"
               alt="cartIcon"
             ></img>
-            <span className="cart-count">5</span>
+            <span className="cart-count">{this.calculateTotalCount()}</span>
           </div>
         </Link>
       </div>
@@ -36,4 +46,11 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+function mapStateToProps(state) {
+  return {
+    cart: state.cart,
+  };
+}
+
+const connectedAppComponent = connect(mapStateToProps)(Navbar);
+export default connectedAppComponent;

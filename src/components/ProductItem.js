@@ -7,6 +7,7 @@ class ProductItem extends React.Component {
     const { dispatch } = this.props;
     dispatch(addProductToCart(this.props.product));
   };
+
   render() {
     const { product } = this.props;
     return (
