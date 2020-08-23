@@ -195,3 +195,106 @@ body {
   margin-left: auto;
   display: flex;
 }
+
+/* Products */
+
+.products {
+  width: 90%;
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-item {
+  width: 100%;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: rgb(56, 62, 68);
+  display: flex;
+  margin: 10px 10px;
+  align-items: center;
+}
+
+.left-block-products {
+  display: flex;
+  align-items: center;
+}
+
+.product-item-img {
+  border-radius: 20px;
+  width: 110px;
+  height: 110px;
+  background-color: gray;
+}
+
+.product-item .right-block-products {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-item .products-actions {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.action-icons {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+  color: black;
+}
+
+.action-icons:hover {
+  cursor: pointer;
+}
+
+.end-block-products {
+  max-width: 70%;
+  font-size: 15px;
+  margin-left: auto;
+  display: flex;
+  margin-right: 20px;
+}
+
+.action-button {
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+/* Add product form */
+
+.add-prod-div {
+  padding: 5px;
+  width: 40%;
+  margin-top: 80px;
+  background-color: rgb(56, 62, 68);
+}
+
+.add-prod-div h2 {
+  margin: 0px;
+  padding: 10px;
+}
+
+.form-add-prod {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-add-prod input {
+  margin: 5px;
+  font-size: 15px;
+  padding: 5px;
+  margin-left: 20px;
+}
+
+.form-add-prod button {
+  margin-left: auto;
+  margin-right: 5px;
+  margin-top: 10px;
+  font-size: 18px;
+  width: 50px;
+}
