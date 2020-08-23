@@ -213,6 +213,7 @@ body {
   border-radius: 20px;
   background-color: rgb(56, 62, 68);
   display: flex;
+  flex-direction: row;
   margin: 10px 10px;
   align-items: center;
 }
@@ -254,10 +255,11 @@ body {
 }
 
 .end-block-products {
-  max-width: 70%;
+  width: 100%;
+  margin-left: 20px;
   font-size: 15px;
-  margin-left: auto;
   display: flex;
+  flex-direction: column;
   margin-right: 20px;
 }
 

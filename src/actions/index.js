@@ -4,12 +4,20 @@ export const ADD_PRODUCT_TO_CART = "ADD_PRODUCT_TO_CART";
 export const INCREASE_QTY_ITEM_CART = "INCREASE_QTY_ITEM_CART";
 export const DECREASE_QTY_ITEM_CART = "DECREASE_QTY_ITEM_CART";
 export const DELETE_ITEM_CART = "DELETE_ITEM_CART";
+export const ADD_NEW_PRODUCT = "ADD_NEW_PRODUCT";
 
-// Action Creators
+// Action Creators for products
 export function addProducts(items) {
   return {
     type: ADD_PRODUCTS,
     items,
+  };
+}
+
+export function addNewProductDB(item) {
+  return {
+    type: ADD_NEW_PRODUCT,
+    item,
   };
 }
 

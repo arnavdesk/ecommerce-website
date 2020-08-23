@@ -1,14 +1,8 @@
 import React from "react";
 import ProductItem from "./ProductItem";
-import { addProductsOnLoad } from "../actions/index";
 import { connect } from "react-redux";
 
 class Products extends React.Component {
-  componentDidMount = () => {
-    const { dispatch } = this.props;
-    dispatch(addProductsOnLoad());
-  };
-
   render() {
     const { items } = this.props.products;
     return (

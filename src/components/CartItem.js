@@ -17,7 +17,7 @@ const CartItem = (props) => {
       <div className="right-block">
         <div style={{ fontSize: 25 }}>{product.title}</div>
         <div style={{ fontSize: 18, color: "#777", marginTop: 5 }}>
-          {product.price}
+          Rs. {product.price}
         </div>
         <div style={{ fontSize: 18, color: "#777", marginTop: 5 }}>
           Qty : {product.qty}

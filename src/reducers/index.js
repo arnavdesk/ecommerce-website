@@ -5,6 +5,7 @@ import {
   INCREASE_QTY_ITEM_CART,
   DECREASE_QTY_ITEM_CART,
   DELETE_ITEM_CART,
+  ADD_NEW_PRODUCT,
 } from "../actions/index";
 import Noty from "noty";
 import "../../node_modules/noty/lib/noty.css";
@@ -29,6 +30,11 @@ export function products(state = initialProductsState, action) {
   switch (action.type) {
     case ADD_PRODUCTS:
       return { ...state, items: action.items };
+    case ADD_NEW_PRODUCT: {
+      action.item.id = state.items.length;
+      showNotification("Product Added");
+      return { ...state, items: [...state.items, action.item] };
+    }
     default:
       return state;
   }

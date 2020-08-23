@@ -5,18 +5,25 @@ import AddProduct from "./AddProduct";
 import Cart from "./Cart";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
+import { addProductsOnLoad } from "../actions/index";
 
-function App() {
-  return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <Route exact path="/" render={(props) => <Products {...props} />} />
-        <Route path="/cart" component={Cart} />
-        <Route path="/add-product" component={AddProduct} />
-      </Router>
-    </div>
-  );
+class App extends React.Component {
+  componentDidMount = () => {
+    const { dispatch } = this.props;
+    dispatch(addProductsOnLoad());
+  };
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <Navbar />
+          <Route exact path="/" render={(props) => <Products {...props} />} />
+          <Route path="/cart" component={Cart} />
+          <Route path="/add-product" component={AddProduct} />
+        </Router>
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state) {
