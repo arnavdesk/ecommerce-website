@@ -54,6 +54,7 @@ body {
 }
 
 .nav-button {
+  cursor: pointer;
   font-weight: 700;
   font-size: 0.6em;
   background-color: rgb(28, 30, 33);
@@ -297,4 +298,15 @@ body {
   margin-top: 10px;
   font-size: 18px;
   width: 50px;
+}
+
+/* Links  */
+.cart-icon-link {
+  display: block;
+  margin-left: auto;
+}
+
+.logo-link {
+  text-decoration: none;
+  display: flex;
 }

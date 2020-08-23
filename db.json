@@ -1,28 +1,36 @@
 {
   "products": [
     {
-      "img": "",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/51kGDXeFZKL._SL1024_.jpg",
       "id": 1,
-      "title": "Red Chair",
-      "price": 2000,
-      "description": "Red color chair super cool.",
-      "rating": 5
-    },
-    {
-      "img": "",
-      "id": 2,
-      "title": "Green Chair",
-      "price": 2000,
-      "description": "Green color chair super cool.",
+      "title": "Apple iPhone 11 (64GB) - Black",
+      "price": 59900,
+      "description": "iPhone-11 Just the right ammount of everything. Better Camera, Better Design, Better everything",
       "rating": 4
     },
     {
-      "img": "",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/81a8akYBGRL._SL1500_.jpg",
+      "id": 2,
+      "title": "Targus KB55 AKB55TT Bluetooth Multi-Platform Keyboard (Black)",
+      "price": 1099,
+      "description": "Multi-platform: Windows, Mac, iOS, Android; Bluetooth 3.0 Wireless Connection. Super slim design. Scissor-switch keys provide a better typing response",
+      "rating": 3.5
+    },
+    {
+      "img": "https://images-na.ssl-images-amazon.com/images/I/619iTNHSCGL._SL1500_.jpg",
       "id": 3,
-      "title": "Blue Chair",
-      "price": 2000,
-      "description": "Blue color chair super cool.",
-      "rating": 3
+      "title": "OnePlus 8 (Glacial Green 6GB RAM+128GB Storage)",
+      "price": 41999,
+      "description": "Oneplus 8 - Lead with speed, 90hz fluid display, Qualcomm Snapdragon 865 with 5G, Slim and sleek design",
+      "rating": 5
+    },
+    {
+      "img": "https://images-na.ssl-images-amazon.com/images/I/71Wk5mfMbML._SL1500_.jpg",
+      "id": 4,
+      "title": "Apple iPad (10.2-inch, Wi-Fi + Cellular, 32GB) - Space Grey (Latest Model)",
+      "price": 40999,
+      "description": "10.2-inch (25.91 cms) Retina display. A10 Fusion chip. Touch ID fingerprint sensor and Apple Pay. 8MP back camera, 1.2MP FaceTime HD front camera. Stereo speakers. 802.11ac Wi-Fi and Gigabit-class LTE cellular data. Up to 10 hours of battery life",
+      "rating": 4
     }
   ]
 }

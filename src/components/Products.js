@@ -6,11 +6,14 @@ class Products extends React.Component {
     this.state = {
       products: [
         {
+          img:
+            "https://images-na.ssl-images-amazon.com/images/I/51kGDXeFZKL._SL1024_.jpg",
           id: 1,
-          title: "Red Chair",
-          price: 2000,
-          description: "Red color chair super cool.",
-          rating: 5,
+          title: "Apple iPhone 11 (64GB) - Black",
+          price: 59900,
+          description:
+            "iPhone-11 Just the right ammount of everything. Better Camera, Better Design, Better everything",
+          rating: 4,
         },
         {
           id: 2,
