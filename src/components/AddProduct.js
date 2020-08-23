@@ -20,6 +20,7 @@ class AddProduct extends Component {
     newProduct.rating = this.ratingRef.current.value;
     newProduct.img = this.imageRef.current.value;
     dispatch(addNewProductDB(newProduct));
+    this.props.history.push("/#item" + (this.props.products.items.length + 1));
   };
   render() {
     return (

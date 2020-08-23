@@ -312,3 +312,20 @@ body {
   text-decoration: none;
   display: flex;
 }
+
+.sort-btn {
+  cursor: pointer;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  color: black;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: whitesmoke;
+}
+
+.sort-btn img {
+  width: 20px;
+  height: 20px;
+}

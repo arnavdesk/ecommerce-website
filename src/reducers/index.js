@@ -6,6 +6,8 @@ import {
   DECREASE_QTY_ITEM_CART,
   DELETE_ITEM_CART,
   ADD_NEW_PRODUCT,
+  EDIT_PRODUCT,
+  DELETE_PRODUCT,
 } from "../actions/index";
 import Noty from "noty";
 import "../../node_modules/noty/lib/noty.css";
@@ -31,9 +33,33 @@ export function products(state = initialProductsState, action) {
     case ADD_PRODUCTS:
       return { ...state, items: action.items };
     case ADD_NEW_PRODUCT: {
-      action.item.id = state.items.length;
+      action.item.id = state.items.length + 1;
       showNotification("Product Added");
       return { ...state, items: [...state.items, action.item] };
+    }
+    case EDIT_PRODUCT: {
+      let index;
+      const filteredItems = state.items.filter(function (element, i) {
+        if (element.id === action.item.id) {
+          index = i;
+        }
+        return element.id !== action.item.id;
+      });
+      if (index === -1) {
+        showNotification("Item not found");
+        return state;
+      } else {
+        showNotification("Item edited");
+        filteredItems.splice(index, 0, action.item);
+        return { ...state, items: filteredItems };
+      }
+    }
+    case DELETE_PRODUCT: {
+      const filteredItems = state.items.filter(function (element) {
+        return element.id !== action.item.id;
+      });
+      showNotification("Removed From Listing");
+      return { ...state, items: filteredItems };
     }
     default:
       return state;
@@ -79,12 +105,29 @@ export function cart(state = initialCartState, action) {
         return newState;
       }
     }
+    case DELETE_PRODUCT:
     case DELETE_ITEM_CART: {
       const filteredItems = state.items.filter(function (element) {
         return element.id !== action.item.id;
       });
       showNotification("Removed From Cart");
       return { ...state, items: filteredItems };
+    }
+    case EDIT_PRODUCT: {
+      let index = -1;
+      const filteredItems = state.items.filter(function (element, i) {
+        if (element.id === action.item.id) {
+          index = i;
+        }
+        return element.id !== action.item.id;
+      });
+      if (index === -1) {
+        return state;
+      } else {
+        action.item.qty = state.items[index].qty;
+        filteredItems.splice(index, 0, action.item);
+        return { ...state, items: filteredItems };
+      }
     }
     default:
       return state;

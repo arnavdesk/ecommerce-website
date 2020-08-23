@@ -9,8 +9,8 @@ import { addProductsOnLoad } from "../actions/index";
 
 class App extends React.Component {
   componentDidMount = () => {
-    const { dispatch } = this.props;
-    dispatch(addProductsOnLoad());
+    const { dispatch, products } = this.props;
+    if (products.items.length === 0) dispatch(addProductsOnLoad());
   };
   render() {
     return (
