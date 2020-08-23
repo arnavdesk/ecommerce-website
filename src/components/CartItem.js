@@ -1,7 +1,14 @@
 import React from "react";
+import { connect } from "react-redux";
+import {
+  increaseQtyItemOfCart,
+  decreaseQtyItemOfCart,
+  deleteItemOfCart,
+} from "../actions/index";
 
 const CartItem = (props) => {
-  const { product } = props;
+  const { product, dispatch } = props;
+
   return (
     <div className="cart-item">
       <div className="left-block">
@@ -23,16 +30,25 @@ const CartItem = (props) => {
             className="action-icons"
             src="https://image.flaticon.com/icons/svg/929/929409.svg"
             alt="Increase"
+            onClick={() => {
+              dispatch(increaseQtyItemOfCart(product));
+            }}
           />
           <img
             className="action-icons"
             src="https://image.flaticon.com/icons/svg/753/753340.svg"
             alt="Decrease"
+            onClick={() => {
+              dispatch(decreaseQtyItemOfCart(product));
+            }}
           />
           <img
             className="action-icons"
             src="https://image.flaticon.com/icons/svg/3221/3221897.svg"
             alt="Delete"
+            onClick={() => {
+              dispatch(deleteItemOfCart(product));
+            }}
           />
         </div>
       </div>
@@ -40,4 +56,11 @@ const CartItem = (props) => {
   );
 };
 
-export default CartItem;
+function mapStateToProps(state) {
+  return {
+    cart: state.cart,
+  };
+}
+
+const connectedAppComponent = connect(mapStateToProps)(CartItem);
+export default connectedAppComponent;

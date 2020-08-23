@@ -4,11 +4,10 @@ import { connect } from "react-redux";
 class Cart extends React.Component {
   render() {
     const { items } = this.props.cart;
-    console.log(items);
     return (
       <div className="cart">
         {items.map((item) => {
-          return <CartItem product={item} />;
+          return <CartItem product={item} key={item.id} />;
         })}
       </div>
     );
