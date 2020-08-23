@@ -47,6 +47,14 @@
       "price": 179999,
       "description": "New Apple MacBook Pro (13-inch, 16GB RAM, 512GB SSD, 2.0GHz Quad-core 10th-Generation Intel Core i5 Processor, Magic Keyboard) - Space Grey",
       "rating": 5
+    },
+    {
+      "img": "https://images-na.ssl-images-amazon.com/images/I/81rIDEbo31L._SL1500_.jpg",
+      "id": 7,
+      "title": "New Apple MacBook Pro (13-inch)",
+      "price": 199999,
+      "description": "New Apple MacBook Pro (13-inch, 16GB RAM, 1TB SSD, 2.0GHz Quad-core 10th-Generation Intel Core i5 Processor, Magic Keyboard) - Space Grey",
+      "rating": 5
     }
   ]
 }
