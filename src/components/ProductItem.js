@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { addProductToCart } from "../actions/index";
 import { editProductDB, deleteProductDB } from "../actions/index";
+import { withRouter } from "react-router-dom";
 
 class ProductItem extends React.Component {
   constructor() {
@@ -45,7 +46,19 @@ class ProductItem extends React.Component {
     const { editable } = this.state;
     const { product, dispatch } = this.props;
     return (
-      <div className="product-item" id={"item" + product.id}>
+      <div
+        onClick={(event) => {
+          if (
+            event.target.className === "action-button" ||
+            event.target.className === "action-icons"
+          ) {
+            return;
+          }
+          this.props.history.push("/product?id=" + product.id);
+        }}
+        className="product-item"
+        id={"item" + product.id}
+      >
         <div className="left-block-products">
           <img className="product-item-img" src={product.img} alt="product" />
         </div>
@@ -144,4 +157,4 @@ function mapStateToProps(state) {
 }
 
 const connectedAppComponent = connect(mapStateToProps)(ProductItem);
-export default connectedAppComponent;
+export default withRouter(connectedAppComponent);

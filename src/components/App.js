@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import Products from "./Products";
 import AddProduct from "./AddProduct";
+import SingleProduct from "./SingleProduct";
 import Cart from "./Cart";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
@@ -20,6 +21,7 @@ class App extends React.Component {
           <Route exact path="/" render={(props) => <Products {...props} />} />
           <Route path="/cart" component={Cart} />
           <Route path="/add-product" component={AddProduct} />
+          <Route path="/product" component={SingleProduct} />
         </Router>
       </div>
     );
