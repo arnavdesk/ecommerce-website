@@ -20,7 +20,9 @@ class CartItem extends React.Component {
           ) {
             return;
           }
-          this.props.history.push("/product?id=" + product.id);
+          this.props.history.push(
+            "/ecommerce-website/product?id=" + product.id
+          );
         }}
         className="cart-item"
       >

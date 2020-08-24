@@ -18,10 +18,14 @@ class App extends React.Component {
       <div className="App">
         <Router>
           <Navbar />
-          <Route exact path="/" render={(props) => <Products {...props} />} />
-          <Route path="/cart" component={Cart} />
-          <Route path="/add-product" component={AddProduct} />
-          <Route path="/product" component={SingleProduct} />
+          <Route
+            exact
+            path="/ecommerce-website/"
+            render={(props) => <Products {...props} />}
+          />
+          <Route path="/ecommerce-website/cart" component={Cart} />
+          <Route path="/ecommerce-website/add-product" component={AddProduct} />
+          <Route path="/ecommerce-website/product" component={SingleProduct} />
         </Router>
       </div>
     );

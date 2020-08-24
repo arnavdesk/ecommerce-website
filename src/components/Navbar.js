@@ -15,22 +15,22 @@ class Navbar extends React.Component {
   render() {
     const path = this.props.location.pathname;
     let style1, style2, style3;
-    if (path === "/") {
+    if (path === "/ecommerce-website/") {
       style1 = { backgroundColor: "rgb(28, 88, 152)" };
       style2 = { backgroundColor: "rgb(28, 30, 33)" };
       style3 = { backgroundColor: "white" };
-    } else if (path === "/add-product") {
+    } else if (path === "/ecommerce-website/add-product") {
       style2 = { backgroundColor: "rgb(28, 88, 152)" };
       style1 = { backgroundColor: "rgb(28, 30, 33)" };
       style3 = { backgroundColor: "white" };
-    } else if (path === "/cart") {
+    } else if (path === "/ecommerce-website/cart") {
       style2 = { backgroundColor: "rgb(28, 30, 33)" };
       style1 = { backgroundColor: "rgb(28, 30, 33)" };
       style3 = { backgroundColor: "rgb(28, 88, 152)" };
     }
     return (
       <div className="navbar">
-        <Link className="logo-link" to="/">
+        <Link className="logo-link" to="/ecommerce-website/">
           <img
             className="logo"
             src="https://image.flaticon.com/icons/svg/579/579427.svg"
@@ -39,18 +39,18 @@ class Navbar extends React.Component {
           <div className="app-name">&nbsp; NinjaMart</div>
         </Link>
         <div className="tabs">
-          <Link to="/">
+          <Link to="/ecommerce-website/">
             <button style={style1} className="nav-button">
               Products
             </button>
           </Link>
-          <Link to="/add-product">
+          <Link to="/ecommerce-website/add-product">
             <button style={style2} className="nav-button">
               Add Product
             </button>
           </Link>
         </div>
-        <Link className="cart-icon-link" to="/cart">
+        <Link className="cart-icon-link" to="/ecommerce-website/cart">
           <div style={style3} className="cart-icon-container">
             <img
               className="cart-icon"
