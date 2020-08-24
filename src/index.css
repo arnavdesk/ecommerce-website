@@ -262,8 +262,17 @@ body {
 }
 
 .action-button {
+  cursor: pointer;
   border-radius: 5px;
   margin-right: 10px;
+  background-color: rgb(28, 88, 152);
+  color: white;
+  outline: none;
+  font-size: 18px;
+}
+
+.action-button:hover {
+  background-color: rgb(24, 72, 124);
 }
 
 /* Add product form */

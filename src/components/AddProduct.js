@@ -37,7 +37,12 @@ class AddProduct extends Component {
           <input type="text" id="rating" ref={this.ratingRef}></input>
           <label>Image Link</label>
           <input type="text" id="img" ref={this.imageRef}></input>
-          <button onClick={() => this.addNewProduct()}>Add</button>
+          <button
+            className="action-button"
+            onClick={() => this.addNewProduct()}
+          >
+            Add
+          </button>
         </div>
       </div>
     );

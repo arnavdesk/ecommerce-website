@@ -33,7 +33,13 @@ class SingleProduct extends Component {
         </div>
         <div className="lower-block">
           <div>Description: {item.description}</div>
-          <button onClick={this.addToCart}>Add to Cart</button>
+          <button
+            style={{ margin: "auto", display: "block", marginTop: "10px" }}
+            className="action-button"
+            onClick={this.addToCart}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     );
