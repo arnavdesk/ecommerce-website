@@ -10,8 +10,6 @@ import {
   EDIT_PRODUCT,
   DELETE_PRODUCT,
 } from "../actions/index";
-import "../../node_modules/noty/lib/noty.css";
-import "../../node_modules/noty/lib/themes/sunset.css";
 
 const initialProductsState = {
   items: [],
