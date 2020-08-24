@@ -16,6 +16,7 @@ class ProductItem extends React.Component {
     this.ratingRef = React.createRef();
   }
 
+  // After editing dispatch an action and save product.
   saveAfterEdit = () => {
     const { dispatch, product } = this.props;
     const editProduct = {};
@@ -29,19 +30,23 @@ class ProductItem extends React.Component {
     this.setState({ editable: false });
   };
 
+  // Stop editing
   cancelEdit = () => {
     this.setState({ editable: false });
   };
 
+  // Start editing.
   startEditing = () => {
     this.setState({ editable: true });
   };
 
+  // Add an item to cart, dispatch action.
   addToCart = () => {
     const { dispatch } = this.props;
     dispatch(addProductToCart(this.props.product));
   };
 
+  // Render function.
   render() {
     const { editable } = this.state;
     const { product, dispatch } = this.props;
@@ -50,7 +55,8 @@ class ProductItem extends React.Component {
         onClick={(event) => {
           if (
             event.target.className === "action-button" ||
-            event.target.className === "action-icons"
+            event.target.className === "action-icons" ||
+            event.target.className === "edit-text"
           ) {
             return;
           }
@@ -98,6 +104,7 @@ class ProductItem extends React.Component {
         {editable && (
           <div className="end-block-products">
             <input
+              className="edit-text"
               ref={this.nameRef}
               style={{ fontSize: 25 }}
               defaultValue={product.title}
@@ -105,6 +112,7 @@ class ProductItem extends React.Component {
             <div>
               Rs.
               <input
+                className="edit-text"
                 ref={this.priceRef}
                 style={{
                   width: "70px",
@@ -118,6 +126,7 @@ class ProductItem extends React.Component {
             <div>
               Rating :
               <input
+                className="edit-text"
                 ref={this.ratingRef}
                 style={{
                   width: "30px",
@@ -131,6 +140,7 @@ class ProductItem extends React.Component {
             <div>
               Description :{" "}
               <input
+                className="edit-text"
                 ref={this.desRef}
                 style={{ width: "100%" }}
                 defaultValue={product.description}

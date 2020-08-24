@@ -3,6 +3,7 @@ import { Link, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 class Navbar extends React.Component {
+  // Calculate total number of items in cart.
   calculateTotalCount = () => {
     const { items } = this.props.cart;
     let total = 0;
@@ -12,8 +13,11 @@ class Navbar extends React.Component {
     return total;
   };
 
+  // Render navbar.
   render() {
     const path = this.props.location.pathname;
+
+    // Decide the style for navigation links.
     let style1, style2, style3;
     if (path === "/ecommerce-website/") {
       style1 = { backgroundColor: "rgb(28, 88, 152)" };
@@ -65,6 +69,7 @@ class Navbar extends React.Component {
   }
 }
 
+// Use context API
 function mapStateToProps(state) {
   return {
     cart: state.cart,

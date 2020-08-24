@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { showNotification } from "../config/notification";
 import {
   ADD_PRODUCTS,
   ADD_PRODUCT_TO_CART,
@@ -9,34 +10,26 @@ import {
   EDIT_PRODUCT,
   DELETE_PRODUCT,
 } from "../actions/index";
-import Noty from "noty";
 import "../../node_modules/noty/lib/noty.css";
-import "../../node_modules/noty/lib/themes/nest.css";
-
-// Show Notification
-const showNotification = (text) => {
-  new Noty({
-    text: text,
-    layout: "bottomRight",
-    theme: "nest",
-    type: "alert",
-    timeout: 500,
-  }).show();
-};
+import "../../node_modules/noty/lib/themes/sunset.css";
 
 const initialProductsState = {
   items: [],
 };
 
+// Handle products
 export function products(state = initialProductsState, action) {
   switch (action.type) {
+    // Add products to cart
     case ADD_PRODUCTS:
       return { ...state, items: action.items };
+    // Add any new products
     case ADD_NEW_PRODUCT: {
       action.item.id = state.items.length + 1;
       showNotification("Product Added");
       return { ...state, items: [...state.items, action.item] };
     }
+    // Edit a product (find by ID the index, remove orignal item, add new item at index.)
     case EDIT_PRODUCT: {
       let index;
       const filteredItems = state.items.filter(function (element, i) {
@@ -54,6 +47,7 @@ export function products(state = initialProductsState, action) {
         return { ...state, items: filteredItems };
       }
     }
+    // Delete a particular product
     case DELETE_PRODUCT: {
       const filteredItems = state.items.filter(function (element) {
         return element.id !== action.item.id;
@@ -70,8 +64,11 @@ const initialCartState = {
   items: [],
 };
 
+// Handle cart
 export function cart(state = initialCartState, action) {
   switch (action.type) {
+    // Find product by id, if not added into the cart first
+    // add create new state and increase the quantity
     case ADD_PRODUCT_TO_CART:
     case INCREASE_QTY_ITEM_CART: {
       console.log(state);
@@ -89,6 +86,7 @@ export function cart(state = initialCartState, action) {
         return newState;
       }
     }
+    // Find product by id the index, create new state and decrease the quantity at index
     case DECREASE_QTY_ITEM_CART: {
       let index = state.items.findIndex(function (element) {
         return element.id === action.item.id;
@@ -105,6 +103,8 @@ export function cart(state = initialCartState, action) {
         return newState;
       }
     }
+    // Delete item from cart in case the product is delete from the DB
+    // and Delete item from cart
     case DELETE_PRODUCT:
     case DELETE_ITEM_CART: {
       const filteredItems = state.items.filter(function (element) {
@@ -113,6 +113,7 @@ export function cart(state = initialCartState, action) {
       showNotification("Removed From Cart");
       return { ...state, items: filteredItems };
     }
+    // Edit product and save
     case EDIT_PRODUCT: {
       let index = -1;
       const filteredItems = state.items.filter(function (element, i) {
@@ -134,6 +135,7 @@ export function cart(state = initialCartState, action) {
   }
 }
 
+// Combine reducers
 export default combineReducers({
   products,
   cart,

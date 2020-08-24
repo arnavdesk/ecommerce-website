@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addNewProductDB } from "../actions/index";
+import { postANewPorudct } from "../actions/index";
+import { showNotification } from "../config/notification";
 
 class AddProduct extends Component {
   constructor() {
@@ -11,6 +12,8 @@ class AddProduct extends Component {
     this.ratingRef = React.createRef();
     this.imageRef = React.createRef();
   }
+
+  // Handle adding a new product
   addNewProduct = () => {
     const { dispatch } = this.props;
     const newProduct = {};
@@ -19,7 +22,17 @@ class AddProduct extends Component {
     newProduct.price = this.priceRef.current.value;
     newProduct.rating = this.ratingRef.current.value;
     newProduct.img = this.imageRef.current.value;
-    dispatch(addNewProductDB(newProduct));
+    if (
+      newProduct.title === "" ||
+      newProduct.description === "" ||
+      newProduct.price === "" ||
+      newProduct.rating === "" ||
+      newProduct.img === ""
+    ) {
+      showNotification("No field can be blank");
+      return;
+    }
+    dispatch(postANewPorudct(newProduct));
     this.props.history.push(
       "/ecommerce-website/#item" + (this.props.products.items.length + 1)
     );
@@ -51,6 +64,7 @@ class AddProduct extends Component {
   }
 }
 
+// Use context API and connect state to props.
 function mapStateToProps(state) {
   return {
     products: state.products,

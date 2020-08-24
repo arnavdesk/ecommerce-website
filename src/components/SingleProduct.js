@@ -14,6 +14,7 @@ class SingleProduct extends Component {
     this.item = products.items[ind];
   }
 
+  // Add item to cart and dispatch action
   addToCart = () => {
     const { dispatch } = this.props;
     dispatch(addProductToCart(this.item));

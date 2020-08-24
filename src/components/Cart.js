@@ -2,6 +2,7 @@ import React from "react";
 import CartItem from "./CartItem";
 import { connect } from "react-redux";
 class Cart extends React.Component {
+  // Calculate total price for cart.
   calculateTotal(items) {
     let price = 0;
     for (const iterator of items) {

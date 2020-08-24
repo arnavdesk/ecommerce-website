@@ -8,6 +8,7 @@ import { Route, BrowserRouter as Router } from "react-router-dom";
 import { connect } from "react-redux";
 import { addProductsOnLoad } from "../actions/index";
 
+// Add routing and different routes
 class App extends React.Component {
   componentDidMount = () => {
     const { dispatch, products } = this.props;

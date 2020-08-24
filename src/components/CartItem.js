@@ -46,7 +46,7 @@ class CartItem extends React.Component {
               src="https://image.flaticon.com/icons/svg/929/929409.svg"
               alt="Increase"
               onClick={() => {
-                dispatch(increaseQtyItemOfCart(product));
+                dispatch(increaseQtyItemOfCart(product)); //Dispatch increase item from cart
               }}
             />
             <img
@@ -54,7 +54,7 @@ class CartItem extends React.Component {
               src="https://image.flaticon.com/icons/svg/753/753340.svg"
               alt="Decrease"
               onClick={() => {
-                dispatch(decreaseQtyItemOfCart(product));
+                dispatch(decreaseQtyItemOfCart(product)); //Dispatch decrease item from cart
               }}
             />
             <img
@@ -62,7 +62,7 @@ class CartItem extends React.Component {
               src="https://image.flaticon.com/icons/svg/3221/3221897.svg"
               alt="Delete"
               onClick={() => {
-                dispatch(deleteItemOfCart(product));
+                dispatch(deleteItemOfCart(product)); //Dispatch delete item from cart
               }}
             />
           </div>
@@ -78,5 +78,8 @@ function mapStateToProps(state) {
   };
 }
 
+// Use context API
 const connectedAppComponent = connect(mapStateToProps)(CartItem);
+
+// To route to some state use "withRouter".
 export default withRouter(connectedAppComponent);

@@ -10,10 +10,12 @@ class Products extends React.Component {
     };
   }
 
+  // Turn off sort by price.
   sortedOff = () => {
     this.setState({ sorted: false });
   };
 
+  // Turn on sort by price.
   sortedOn = () => {
     this.setState({ sorted: true });
   };

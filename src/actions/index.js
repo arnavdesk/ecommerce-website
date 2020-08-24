@@ -9,6 +9,8 @@ export const EDIT_PRODUCT = "EDIT_PRODUCT";
 export const DELETE_PRODUCT = "DELETE_PRODUCT";
 
 // Action Creators for products
+
+// Add multple products to cart
 export function addProducts(items) {
   return {
     type: ADD_PRODUCTS,
@@ -16,6 +18,7 @@ export function addProducts(items) {
   };
 }
 
+// Add a single product
 export function addNewProductDB(item) {
   return {
     type: ADD_NEW_PRODUCT,
@@ -23,6 +26,7 @@ export function addNewProductDB(item) {
   };
 }
 
+// edit a single product
 export function editProductDB(item) {
   return {
     type: EDIT_PRODUCT,
@@ -30,6 +34,7 @@ export function editProductDB(item) {
   };
 }
 
+// delete a single product
 export function deleteProductDB(item) {
   return {
     type: DELETE_PRODUCT,
@@ -38,6 +43,8 @@ export function deleteProductDB(item) {
 }
 
 // Async functions for products
+
+// Add multple products to cart on the load fetch from the API
 export function addProductsOnLoad() {
   const url = `https://my-json-server.typicode.com/arnavdesk/ecommerce-website/db`;
   return async function (dispatch) {
@@ -48,7 +55,25 @@ export function addProductsOnLoad() {
   };
 }
 
+export function postANewPorudct(item) {
+  const url = `https://my-json-server.typicode.com/arnavdesk/ecommerce-website/products`;
+  return async function (dispatch) {
+    const formData = new URLSearchParams();
+    for (const key in item) {
+      formData.append(key, item[key]);
+    }
+    const response = await fetch(url, {
+      method: "post",
+      body: formData,
+    });
+    if (response.status === 201) dispatch(addNewProductDB(item));
+    else dispatch({ type: "BLANK" });
+  };
+}
+
 // Action creators in cart
+// Add products to cart
+
 export function addProductToCart(item) {
   return {
     type: ADD_PRODUCT_TO_CART,
@@ -56,6 +81,7 @@ export function addProductToCart(item) {
   };
 }
 
+// Increase quantity of cart of an item
 export function increaseQtyItemOfCart(item) {
   return {
     type: INCREASE_QTY_ITEM_CART,
@@ -63,6 +89,7 @@ export function increaseQtyItemOfCart(item) {
   };
 }
 
+// decrese quantity of cart of an item
 export function decreaseQtyItemOfCart(item) {
   return {
     type: DECREASE_QTY_ITEM_CART,
@@ -70,6 +97,7 @@ export function decreaseQtyItemOfCart(item) {
   };
 }
 
+// delete item of cart
 export function deleteItemOfCart(item) {
   return {
     type: DELETE_ITEM_CART,
